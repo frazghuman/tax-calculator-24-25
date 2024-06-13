@@ -1,0 +1,23 @@
+<div class="tw-max-w-lg tw-mx-auto tw-mt-10 tw-p-6 tw-bg-white tw-rounded-lg tw-shadow-md">
+    <h2 class="tw-text-2xl tw-font-bold tw-mb-4">Tax Calculator  2024 - 25</h2>
+    <form (ngSubmit)="calculateTax()" #taxForm="ngForm">
+      <div class="tw-mb-4">
+        <label for="monthlyIncome" class="tw-block tw-text-sm tw-font-medium tw-text-gray-700">Monthly Income</label>
+        <input type="number" id="monthlyIncome" name="monthlyIncome" [(ngModel)]="monthlyIncome"
+          class="tw-mt-1 tw-block tw-w-full tw-px-3 tw-py-2 tw-border tw-border-gray-300 tw-rounded-md tw-shadow-sm"
+          required>
+      </div>
+      <div class="tw-mb-4">
+        <button type="submit"
+          class="tw-w-full tw-bg-blue-500 tw-text-white tw-px-4 tw-py-2 tw-rounded-md tw-shadow-sm">Calculate</button>
+      </div>
+    </form>
+    <div *ngIf="result">
+      <h3 class="tw-text-xl tw-font-semibold tw-mt-4">Result</h3>
+      <p class="tw-mt-2">Monthly Tax: {{ result.monthlyTax | currency:'PKR' }}</p>
+      <p class="tw-mt-2">After-Tax Monthly Income: {{ result.netMonthlyIncome | currency:'PKR' }}</p>
+      <p class="tw-mt-2">Annual Tax: {{ result.annualTax | currency:'PKR' }}</p>
+      <p class="tw-mt-2">After-Tax Annual Income: {{ result.netAnnualIncome | currency:'PKR' }}</p>
+    </div>
+  </div>
+  
